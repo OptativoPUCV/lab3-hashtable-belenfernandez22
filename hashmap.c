@@ -40,7 +40,6 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
-void insertMap(HashMap * map, char * key, void * value) {
     // Crear un nuevo par con la clave y el valor dados
     Pair * new_pair = createPair(key, value);
 
