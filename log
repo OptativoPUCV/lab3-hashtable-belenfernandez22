@@ -120,3 +120,25 @@ hashmap.c:93:10: error: expected ‘(’ before ‘map’
 cc1: all warnings being treated as errors
 Compilation failed
 a708e5b
+Thu 07 Sep 2023 10:22:13 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:91:8: error: expected ‘(’ before ‘map’
+   91 |     if map->buckets[i] == NULL) return NULL;
+      |        ^~~
+      |        (
+hashmap.c:91:20: error: statement with no effect [-Werror=unused-value]
+   91 |     if map->buckets[i] == NULL) return NULL;
+      |        ~~~~~~~~~~~~^~~
+hashmap.c:91:5: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   91 |     if map->buckets[i] == NULL) return NULL;
+      |     ^~
+hashmap.c:91:31: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   91 |     if map->buckets[i] == NULL) return NULL;
+      |                               ^
+hashmap.c:91:31: error: expected statement before ‘)’ token
+cc1: all warnings being treated as errors
+Compilation failed
+434e781
