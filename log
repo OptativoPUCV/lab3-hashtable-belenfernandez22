@@ -264,3 +264,9 @@ hashmap.c:86:7: error: expected identifier or ‘(’ before ‘->’ token
       |       ^~
 Compilation failed
 d9cd3fd
+Thu 07 Sep 2023 10:53:57 PM UTC: 
+ hashmap.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+ tests:  11|2
+total_score: 50/70
+d1d0cbc
