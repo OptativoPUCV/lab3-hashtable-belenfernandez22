@@ -86,3 +86,18 @@ Thu 07 Sep 2023 04:04:37 PM UTC:
  tests:  5|4
 total_score: 30/70
 1ab717f
+Thu 07 Sep 2023 10:20:22 PM UTC: 
+ hashmap.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:91:21: error: statement with no effect [-Werror=unused-value]
+   91 |     map->buckets[i] == NULL) return NULL;
+      |                     ^
+hashmap.c:91:28: error: expected ‘;’ before ‘)’ token
+   91 |     map->buckets[i] == NULL) return NULL;
+      |                            ^
+hashmap.c:91:28: error: expected statement before ‘)’ token
+cc1: all warnings being treated as errors
+Compilation failed
+0ba249f
