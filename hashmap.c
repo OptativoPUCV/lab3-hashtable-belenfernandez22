@@ -77,13 +77,7 @@ void enlarge(HashMap * map) {
     return map;
 }
 
-}
 
-
-HashMap * createMap(long capacity) {
-
-    return NULL;
-}
 
 void eraseMap(HashMap * map,  char * key) {    
 
