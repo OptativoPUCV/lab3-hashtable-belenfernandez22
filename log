@@ -220,3 +220,27 @@ hashmap.c:86:7: error: statement with no effect [-Werror=unused-value]
 cc1: all warnings being treated as errors
 Compilation failed
 3faacb4
+Thu 07 Sep 2023 10:51:55 PM UTC: 
+ hashmap.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:84:4: error: expected ‘(’ before ‘pair’
+   84 | if pair != NULL;{
+      |    ^~~~
+      |    (
+hashmap.c:84:4: error: statement with no effect [-Werror=unused-value]
+   84 | if pair != NULL;{
+      |    ^~~~
+hashmap.c:84:1: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   84 | if pair != NULL;{
+      | ^~
+hashmap.c:84:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   84 | if pair != NULL;{
+      |                 ^
+hashmap.c:86:7: error: expected identifier or ‘(’ before ‘->’ token
+   86 |   Pair-> key == NULL;
+      |       ^~
+cc1: all warnings being treated as errors
+Compilation failed
+7e2c927
