@@ -55,3 +55,13 @@ Thu 07 Sep 2023 03:34:59 PM UTC:
  tests:  4|5
 total_score: 20/70
 2709405
+Thu 07 Sep 2023 03:42:56 PM UTC: 
+ hashmap.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+In file included from test.c:4:
+hashmap.c:68:11: error: ‘createMap’ defined but not used [-Werror=unused-function]
+   68 | HashMap * createMap(long capacity) {
+      |           ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+2c4d086
