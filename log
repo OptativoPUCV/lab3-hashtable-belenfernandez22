@@ -244,3 +244,13 @@ hashmap.c:86:7: error: expected identifier or ‘(’ before ‘->’ token
 cc1: all warnings being treated as errors
 Compilation failed
 7e2c927
+Thu 07 Sep 2023 10:52:59 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:86:8: error: expected identifier or ‘(’ before ‘->’ token
+   86 |   Pair -> key == NULL;
+      |        ^~
+Compilation failed
+38c0e06
