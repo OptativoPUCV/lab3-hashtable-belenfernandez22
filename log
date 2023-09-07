@@ -101,3 +101,22 @@ hashmap.c:91:28: error: expected statement before ‘)’ token
 cc1: all warnings being treated as errors
 Compilation failed
 0ba249f
+Thu 07 Sep 2023 10:20:47 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:91:21: error: statement with no effect [-Werror=unused-value]
+   91 |     map->buckets[i] == NULL) return NULL;
+      |                     ^
+hashmap.c:91:28: error: expected ‘;’ before ‘)’ token
+   91 |     map->buckets[i] == NULL) return NULL;
+      |                            ^
+hashmap.c:91:28: error: expected statement before ‘)’ token
+hashmap.c:93:10: error: expected ‘(’ before ‘map’
+   93 |       if map-> current= i;
+      |          ^~~
+      |          (
+cc1: all warnings being treated as errors
+Compilation failed
+a708e5b

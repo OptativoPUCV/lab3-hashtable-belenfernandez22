@@ -90,7 +90,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   do{
     map->buckets[i] == NULL) return NULL;
     if(strcmp(map->buckets[i]->key, key) == 0) {
-      map-> current= i;
+      if map-> current= i;
       return map-> buckets[i];
     }
     i=( i+1)% map -> capacity;
