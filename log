@@ -65,3 +65,18 @@ hashmap.c:68:11: error: ‘createMap’ defined but not used [-Werror=unused-fun
 cc1: all warnings being treated as errors
 Compilation failed
 2c4d086
+Thu 07 Sep 2023 04:00:59 PM UTC: 
+ hashmap.c | 3 +++
+ 1 file changed, 3 insertions(+)
+In file included from test.c:4:
+hashmap.c:80:1: error: expected identifier or ‘(’ before ‘}’ token
+   80 | }
+      | ^
+hashmap.c:83:11: error: redefinition of ‘createMap’
+   83 | HashMap * createMap(long capacity) {
+      |           ^~~~~~~~~
+hashmap.c:70:13: note: previous definition of ‘createMap’ with type ‘HashMap *(long int)’ {aka ‘struct HashMap *(long int)’}
+   70 |   HashMap * createMap(long capacity) {
+      |             ^~~~~~~~~
+Compilation failed
+e249f33
