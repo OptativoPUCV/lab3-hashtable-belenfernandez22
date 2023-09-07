@@ -2,3 +2,21 @@ Thu 07 Sep 2023 03:18:57 PM UTC:
  tests:  0|6
 total_score: 0/70
 e93a407
+Thu 07 Sep 2023 03:25:58 PM UTC: 
+ hashmap.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:49:15: error: expected ‘;’ before ‘}’ token
+   49 |     return map
+      |               ^
+      |               ;
+   50 | }
+      | ~              
+At top level:
+hashmap.c:43:11: error: ‘createMap’ defined but not used [-Werror=unused-function]
+   43 | HashMap * createMap(long capacity) {
+      |           ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+0c9df1e
