@@ -104,7 +104,24 @@ Pair * searchMap(HashMap * map,  char * key) {
 }
 
 Pair * firstMap(HashMap * map) {
+    int i;
+    for (i = 0; i < map->size; i++) {
+        if (map->buckets[i].key != NULL) {
+            map->current = i;
+            return &(map->buckets[i]);
+        }
+    }
+    return NULL;
+}
 
+Pair * nextMap(HashMap * map) {
+    int i;
+    for (i = map->current + 1; i < map->size; i++) {
+        if (map->buckets[i].key != NULL) {
+            map->current = i;
+            return (map->buckets[i]);
+        }
+    }
     return NULL;
 }
 
