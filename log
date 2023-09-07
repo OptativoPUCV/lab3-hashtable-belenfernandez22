@@ -199,3 +199,24 @@ hashmap.c:83:9: error: unused variable ‘pair’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 cda2617
+Thu 07 Sep 2023 10:51:02 PM UTC: 
+ hashmap.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:84:4: error: expected ‘(’ before ‘pair’
+   84 | if pair != NULL;
+      |    ^~~~
+      |    (
+hashmap.c:84:4: error: statement with no effect [-Werror=unused-value]
+   84 | if pair != NULL;
+      |    ^~~~
+hashmap.c:85:7: error: expected identifier or ‘(’ before ‘->’ token
+   85 |   Pair-> key == NULL;
+      |       ^~
+hashmap.c:86:7: error: statement with no effect [-Werror=unused-value]
+   86 |   map -> size ;
+      |   ~~~~^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+3faacb4
