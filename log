@@ -188,3 +188,14 @@ test.c:100:6: error: ‘hash_test1’ defined but not used [-Werror=unused-funct
 cc1: all warnings being treated as errors
 Compilation failed
 0be5259
+Thu 07 Sep 2023 10:49:25 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:83:9: error: unused variable ‘pair’ [-Werror=unused-variable]
+   83 |   Pair* pair = searchMap(map,key);
+      |         ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+cda2617
