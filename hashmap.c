@@ -88,7 +88,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   int pos = hash(key, map->capacity);
   int i = pos; 
   do{
-    if map->buckets[i] == NULL) return NULL;
+    if (map->buckets[i] == NULL)return NULL;
     if(strcmp(map->buckets[i]->key, key) == 0) {
       map-> current= i;
       return map-> buckets[i];
