@@ -30,3 +30,13 @@ hashmap.c:42:11: error: ‘createMap’ defined but not used [-Werror=unused-fun
 cc1: all warnings being treated as errors
 Compilation failed
 10f0a66
+Thu 07 Sep 2023 03:34:29 PM UTC: 
+ hashmap.c | 30 +++++++++++++++++++++++-------
+ 1 file changed, 23 insertions(+), 7 deletions(-)
+In file included from test.c:4:
+hashmap.c:43:6: error: ‘insertMap’ defined but not used [-Werror=unused-function]
+   43 | void insertMap(HashMap * map, char * key, void * value) {
+      |      ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+78add91
