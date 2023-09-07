@@ -80,7 +80,7 @@ void enlarge(HashMap * map) {
 
 
 void eraseMap(HashMap * map,  char * key) {    
-
+  Pair* pair = searchMap(map,key)
 
 }
 
