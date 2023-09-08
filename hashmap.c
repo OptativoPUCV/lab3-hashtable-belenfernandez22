@@ -35,7 +35,31 @@ int is_equal(void* key1, void* key2){
     return 0;
 }
 
+void insertMap(HashMap * map, char * key, void * value) {
+    // Crear un nuevo par con la clave y el valor dados
+    Pair * new_pair = createPair(key, value);
 
+    // Calcular el índice del bucket usando la función hash
+    long index = hash(key, map->capacity);
+
+    // Si el bucket está vacío, insertar el nuevo par directamente
+    if (map->buckets[index] == NULL) {
+        map->buckets[index] = new_pair;
+        map->size++;
+    } else {
+        // Si el bucket ya está ocupado, buscar una posición vacía usando sondaje lineal
+        while (map->buckets[index] != NULL) {
+            // Si la clave ya existe en el mapa, no insertar el nuevo par
+            if (is_equal(map->buckets[index]->key, key)) {
+                return;
+            }
+            index = (index + 1) % map->capacity;
+        }
+        map->buckets[index] = new_pair;
+        map->size++;
+    }
+    map->current = index;
+    }
 
 
 void enlarge(HashMap * map) {
