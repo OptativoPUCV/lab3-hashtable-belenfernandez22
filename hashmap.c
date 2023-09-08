@@ -7,7 +7,7 @@
 typedef struct HashMap HashMap;
 int enlarge_called=0;
 
-struct HashMap 
+struct HashMap { }
     Pair ** buckets;
     long size; //cantidad de datos/pairs en la tabla
     long capacity; //capacidad de la tabla

@@ -2022,3 +2022,350 @@ test.c:439:59: error: invalid use of incomplete typedef ‘HashMap’ {aka ‘st
 cc1: all warnings being treated as errors
 Compilation failed
 0c87291
+Fri 08 Sep 2023 02:27:45 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c:11:10: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+   11 |     Pair ** buckets;
+      |          ^
+hashmap.c:15:1: error: expected identifier or ‘(’ before ‘}’ token
+   15 | };
+      | ^
+hashmap.c: In function ‘insertMap’:
+hashmap.c:43:31: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   43 |     long index = hash(key, map->capacity);
+      |                               ^~
+hashmap.c:46:22: error: implicit declaration of function ‘hash2’; did you mean ‘hash’? [-Werror=implicit-function-declaration]
+   46 |     long increment = hash2(key, map->capacity);
+      |                      ^~~~~
+      |                      hash
+hashmap.c:46:36: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   46 |     long increment = hash2(key, map->capacity);
+      |                                    ^~
+hashmap.c:49:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   49 |     if (map->buckets[index] == NULL) {
+      |            ^~
+hashmap.c:50:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   50 |         map->buckets[index] = new_pair;
+      |            ^~
+hashmap.c:51:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   51 |         map->size++;
+      |            ^~
+hashmap.c:54:19: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   54 |         while (map->buckets[index] != NULL) {
+      |                   ^~
+hashmap.c:56:29: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   56 |             if (is_equal(map->buckets[index]->key, key)) {
+      |                             ^~
+hashmap.c:59:46: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   59 |             index = (index + increment) % map->capacity;
+      |                                              ^~
+hashmap.c:61:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   61 |         map->buckets[index] = new_pair;
+      |            ^~
+hashmap.c:62:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   62 |         map->size++;
+      |            ^~
+hashmap.c:64:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+   64 |     map->current = index;
+      |        ^~
+hashmap.c: In function ‘enlarge’:
+hashmap.c:71:29: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   71 |     Pair **old_buckets = map->buckets;
+      |                             ^~
+hashmap.c:74:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   74 |     map->capacity *= 2;
+      |        ^~
+hashmap.c:77:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   77 |     map->buckets = (Pair **)calloc(map->capacity, sizeof(Pair *));
+      |        ^~
+hashmap.c:77:39: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   77 |     map->buckets = (Pair **)calloc(map->capacity, sizeof(Pair *));
+      |                                       ^~
+hashmap.c:80:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   80 |     map->size = 0;
+      |        ^~
+hashmap.c:83:28: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   83 |     for (int i = 0; i < map->capacity / 2; i++) {
+      |                            ^~
+hashmap.c: In function ‘createMap’:
+hashmap.c:96:6: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   96 |   map->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
+      |      ^~
+hashmap.c:97:6: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   97 |   map->size = 0;
+      |      ^~
+hashmap.c:98:6: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   98 |   map->capacity = capacity;
+      |      ^~
+hashmap.c:99:6: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+   99 |   map->current = -1;
+      |      ^~
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:106:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  106 |         map->size--;
+      |            ^~
+hashmap.c: In function ‘searchMap’:
+hashmap.c:111:31: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+  111 |     long index = hash(key, map->capacity);
+      |                               ^~
+hashmap.c:113:15: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  113 |     while (map->buckets[index] != NULL && !is_equal(map->buckets[index]->key, key)) {
+      |               ^~
+hashmap.c:113:56: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  113 |     while (map->buckets[index] != NULL && !is_equal(map->buckets[index]->key, key)) {
+      |                                                        ^~
+hashmap.c:114:34: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+  114 |         index = (index + 1) % map->capacity;
+      |                                  ^~
+hashmap.c:117:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  117 |     if (map->buckets[index] != NULL && is_equal(map->buckets[index]->key, key)) {
+      |            ^~
+hashmap.c:117:52: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  117 |     if (map->buckets[index] != NULL && is_equal(map->buckets[index]->key, key)) {
+      |                                                    ^~
+hashmap.c:118:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  118 |         map->current = index;
+      |            ^~
+hashmap.c:119:19: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  119 |         return map->buckets[index];
+      |                   ^~
+hashmap.c: In function ‘firstMap’:
+hashmap.c:124:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  124 |     map->current = -1;
+      |        ^~
+hashmap.c:125:28: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+  125 |     for (int i = 0; i < map->capacity; i++) {
+      |                            ^~
+hashmap.c:126:16: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  126 |         if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
+      |                ^~
+hashmap.c:126:43: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  126 |         if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
+      |                                           ^~
+hashmap.c:127:16: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  127 |             map->current = i;
+      |                ^~
+hashmap.c:128:23: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  128 |             return map->buckets[i];
+      |                       ^~
+hashmap.c: In function ‘nextMap’:
+hashmap.c:136:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  136 |     if (map->current >= 0 && map->current < map->capacity) {
+      |            ^~
+hashmap.c:136:33: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  136 |     if (map->current >= 0 && map->current < map->capacity) {
+      |                                 ^~
+hashmap.c:136:48: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+  136 |     if (map->current >= 0 && map->current < map->capacity) {
+      |                                                ^~
+hashmap.c:137:25: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  137 |         for (int i = map->current + 1; i < map->capacity; i++) {
+      |                         ^~
+hashmap.c:137:47: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+  137 |         for (int i = map->current + 1; i < map->capacity; i++) {
+      |                                               ^~
+hashmap.c:138:20: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  138 |             if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
+      |                    ^~
+hashmap.c:138:47: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  138 |             if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
+      |                                               ^~
+hashmap.c:139:20: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  139 |                 map->current = i;
+      |                    ^~
+hashmap.c:140:27: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  140 |                 return map->buckets[i];
+      |                           ^~
+test.c: In function ‘initializeMap’:
+test.c:44:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   44 |     map->buckets = (Pair **) calloc (10,sizeof(Pair *));
+      |        ^~
+test.c:45:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   45 |     map->capacity = 10;
+      |        ^~
+test.c:52:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   52 |         map->buckets[hashs[i]] =
+      |            ^~
+test.c:56:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   56 |     map->size=6;
+      |        ^~
+test.c:48:9: error: variable ‘hashs’ set but not used [-Werror=unused-but-set-variable]
+   48 |     int hashs[6]={8,7,6,0,4,2}; //using function in hashmap.c
+      |         ^~~~~
+test.c: In function ‘createMap_test2’:
+test.c:79:13: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+   79 |       if(map->buckets[i]!=NULL) {err_msg("bucket no nulo"); return 0;}
+      |             ^~
+test.c: In function ‘createMap_test3’:
+test.c:85:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   85 |     if(map->size !=0 || map->capacity!=10 || map->current!=-1){
+      |           ^~
+test.c:85:28: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   85 |     if(map->size !=0 || map->capacity!=10 || map->current!=-1){
+      |                            ^~
+test.c:85:49: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+   85 |     if(map->size !=0 || map->capacity!=10 || map->current!=-1){
+      |                                                 ^~
+test.c:91:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   91 |     if(map->size !=0 || map->capacity!=5 || map->current!=-1){
+      |           ^~
+test.c:91:28: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+   91 |     if(map->size !=0 || map->capacity!=5 || map->current!=-1){
+      |                            ^~
+test.c:91:48: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+   91 |     if(map->size !=0 || map->capacity!=5 || map->current!=-1){
+      |                                                ^~
+test.c: In function ‘insert_test1’:
+test.c:143:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  143 |     if(map->buckets[3] == NULL){
+      |           ^~
+test.c:148:20: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  148 |     if( strcmp (map->buckets[3]->key, ":key")!=0 ||
+      |                    ^~
+test.c:149:25: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  149 |              strcmp (map->buckets[3]->value, "value")!=0 ){
+      |                         ^~
+test.c:154:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  154 |     if(map->size != 7){
+      |           ^~
+test.c: In function ‘insert_test2’:
+test.c:172:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  172 |     if(map->buckets[1] != NULL){
+      |           ^~
+test.c: In function ‘insert_test3’:
+test.c:183:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  183 |     if(map->buckets[9]==NULL || !is_equal(map->buckets[9]->value,"value") ){
+      |           ^~
+test.c:183:46: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  183 |     if(map->buckets[9]==NULL || !is_equal(map->buckets[9]->value,"value") ){
+      |                                              ^~
+test.c: In function ‘insert_test4’:
+test.c:196:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  196 |     if(map->buckets[9]==NULL || !is_equal(map->buckets[9]->value,"value") ){
+      |           ^~
+test.c:196:46: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  196 |     if(map->buckets[9]==NULL || !is_equal(map->buckets[9]->value,"value") ){
+      |                                              ^~
+test.c:203:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  203 |     map->size=6;
+      |        ^~
+test.c:206:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  206 |     if(map->buckets[1]==NULL || !is_equal(map->buckets[1]->value,"value") ){
+      |           ^~
+test.c:206:46: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  206 |     if(map->buckets[1]==NULL || !is_equal(map->buckets[1]->value,"value") ){
+      |                                              ^~
+test.c: In function ‘insert_test5’:
+test.c:219:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  219 |     map->size = 7; //se fuerza size=7
+      |        ^~
+test.c: In function ‘search_test1’:
+test.c:242:18: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  242 |     if(ret != map->buckets[7]) {
+      |                  ^~
+test.c:248:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  248 |     if(map->current!=7){
+      |           ^~
+test.c: In function ‘search_test2’:
+test.c:259:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  259 |     map->buckets[9]=createPair(_strdup("key"),_strdup("value"));
+      |        ^~
+test.c:268:18: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  268 |     if(ret != map->buckets[9]) {
+      |                  ^~
+test.c: In function ‘search_test3’:
+test.c:280:70: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  280 |         sprintf(msg,"searchMap retorna un elemento con clave %s", map->buckets[map->current]->key);
+      |                                                                      ^~
+test.c:280:83: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  280 |         sprintf(msg,"searchMap retorna un elemento con clave %s", map->buckets[map->current]->key);
+      |                                                                                   ^~
+test.c: In function ‘erase_test1’:
+test.c:294:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  294 |     if(map->buckets[0]==NULL){
+      |           ^~
+test.c:299:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  299 |     if(map->buckets[0]->key !=NULL) {
+      |           ^~
+test.c:304:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  304 |     if(map->size != 5){
+      |           ^~
+test.c: In function ‘erase_test2’:
+test.c:317:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  317 |     map->buckets[9]=createPair(_strdup("key"),_strdup("value"));
+      |        ^~
+test.c:322:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  322 |     if(map->buckets[9]->key!=NULL){
+      |           ^~
+test.c: In function ‘erase_test3’:
+test.c:335:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  335 |     if(map->buckets[2]->key==NULL){
+      |           ^~
+test.c: In function ‘first_test’:
+test.c:355:18: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  355 |     if(aux != map->buckets[0]){
+      |                  ^~
+test.c:360:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  360 |     if(map->current != 0){
+      |           ^~
+test.c:368:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  368 |     map->buckets[0]->key=NULL;
+      |        ^~
+test.c:373:18: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  373 |     if(aux != map->buckets[2]){
+      |                  ^~
+test.c:378:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  378 |     if(map->current != 2){
+      |           ^~
+test.c: In function ‘next_test’:
+test.c:393:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  393 |     map->current=0;
+      |        ^~
+test.c:394:25: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  394 |     if(nextMap(map)!=map->buckets[2]){
+      |                         ^~
+test.c:400:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  400 |     if(map->current!=2){
+      |           ^~
+test.c:406:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  406 |     map->current=7;
+      |        ^~
+test.c:407:25: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  407 |     if(nextMap(map)!=map->buckets[8]){
+      |                         ^~
+test.c: In function ‘enlarge_test’:
+test.c:429:23: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  429 |     void* value3 = map->buckets[0]->value;
+      |                       ^~
+test.c:430:23: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  430 |     void* value5 = map->buckets[2]->value;
+      |                       ^~
+test.c:431:23: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  431 |     void* value4 = map->buckets[4]->value;
+      |                       ^~
+test.c:435:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  435 |     if(map->buckets[0]->value!=value3 || map->buckets[2]!=NULL || map->buckets[12]->value != value5 || map->buckets[4]->value!=value4){
+      |           ^~
+test.c:435:45: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  435 |     if(map->buckets[0]->value!=value3 || map->buckets[2]!=NULL || map->buckets[12]->value != value5 || map->buckets[4]->value!=value4){
+      |                                             ^~
+test.c:435:70: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  435 |     if(map->buckets[0]->value!=value3 || map->buckets[2]!=NULL || map->buckets[12]->value != value5 || map->buckets[4]->value!=value4){
+      |                                                                      ^~
+test.c:435:107: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  435 |     if(map->buckets[0]->value!=value3 || map->buckets[2]!=NULL || map->buckets[12]->value != value5 || map->buckets[4]->value!=value4){
+      |                                                                                                           ^~
+test.c:437:22: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’
+  437 |         for(i=0;i<map->capacity;i++){
+      |                      ^~
+test.c:438:19: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  438 |             if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
+      |                   ^~
+test.c:439:59: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘buckets’
+  439 |             else sprintf(msg,"%.100s%s  ", msg, (char*)map->buckets[i]->value);
+      |                                                           ^~
+cc1: all warnings being treated as errors
+Compilation failed
+7aae0cd
