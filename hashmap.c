@@ -35,34 +35,6 @@ int is_equal(void* key1, void* key2){
     return 0;
 }
 
-void insertMap(HashMap * map, char * key, void * value) {
-    // Crear un nuevo par con la clave y el valor dados
-    Pair * new_pair = createPair(key, value);
-
-    // Calcular el índice del bucket usando la función hash
-    long index = hash(key, map->capacity);
-
-    // Calcular el valor de incremento para el doble hashing
-    long increment = hash(key, map->capacity);
-
-    //  insertar el nuevo par directamente
-    if (map->buckets[index] == NULL) {
-        map->buckets[index] = new_pair;
-        map->size++;
-    } else {
-        //  buscar una posición vacía usando doble hashing
-        while (map->buckets[index] != NULL) {
-            //  no insertar el nuevo par
-            if (is_equal(map->buckets[index]->key, key)) {
-                return;
-            }
-            index = (index + increment) % map->capacity;
-        }
-        map->buckets[index] = new_pair;
-        map->size++;
-    }
-    map->current = index;
-}
 
 
 
