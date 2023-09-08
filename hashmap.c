@@ -154,7 +154,7 @@ Pair * firstMap(HashMap * map) {
     return NULL;
 }
 
-Pair * nextMap(HashMap * map) {
+Pair * nextMap(HashMap * map) 
     // Si el índice current es válido, recorrer el arreglo desde el índice current + 1 hasta encontrar un par válido o llegar al final
     if (map->current >= 0 && map->current < map->capacity) {
         for (int i = map->current + 1; i < map->capacity; i++) {
