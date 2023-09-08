@@ -1118,3 +1118,65 @@ hashmap.c:129:8: error: ‘nextMap’ defined but not used [-Werror=unused-funct
 cc1: all warnings being treated as errors
 Compilation failed
 34c81b5
+Fri 08 Sep 2023 01:41:50 AM UTC: 
+ hashmap.c | 114 +++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 68 insertions(+), 46 deletions(-)
+In file included from test.c:4:
+hashmap.c:11:8: error: redefinition of ‘struct Pair’
+   11 | struct Pair {
+      |        ^~~~
+In file included from hashmap.c:6,
+                 from test.c:4:
+hashmap.h:15:16: note: originally defined here
+   15 | typedef struct Pair {
+      |                ^~~~
+In file included from test.c:4:
+hashmap.c: In function ‘createPair’:
+hashmap.c:28:12: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+   28 |     newPair->next = NULL;
+      |            ^~
+hashmap.c: In function ‘insertMap’:
+hashmap.c:61:23: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+   61 |         while (current->next != NULL) {
+      |                       ^~
+hashmap.c:62:30: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+   62 |             current = current->next;
+      |                              ^~
+hashmap.c:64:16: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+   64 |         current->next = newPair;
+      |                ^~
+hashmap.c: In function ‘enlarge’:
+hashmap.c:73:5: error: ‘enlarge_called’ undeclared (first use in this function)
+   73 |     enlarge_called = 1; // no borrar (testing purposes)
+      |     ^~~~~~~~~~~~~~
+hashmap.c:73:5: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:85:30: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+   85 |             current = current->next;
+      |                              ^~
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:112:46: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+  112 |                 map->buckets[index] = current->next;
+      |                                              ^~
+hashmap.c:114:21: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+  114 |                 prev->next = current->next;
+      |                     ^~
+hashmap.c:114:37: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+  114 |                 prev->next = current->next;
+      |                                     ^~
+hashmap.c:122:26: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+  122 |         current = current->next;
+      |                          ^~
+hashmap.c: In function ‘searchMap’:
+hashmap.c:135:26: error: ‘Pair’ {aka ‘struct Pair’} has no member named ‘next’
+  135 |         current = current->next;
+      |                          ^~
+test.c: In function ‘insert_test1’:
+test.c:159:8: error: ‘enlarge_called’ undeclared (first use in this function)
+  159 |     if(enlarge_called == 1){
+      |        ^~~~~~~~~~~~~~
+test.c: In function ‘insert_test5’:
+test.c:223:8: error: ‘enlarge_called’ undeclared (first use in this function)
+  223 |     if(enlarge_called == 0){
+      |        ^~~~~~~~~~~~~~
+Compilation failed
+6635fd1
