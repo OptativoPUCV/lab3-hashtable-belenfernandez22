@@ -1651,3 +1651,9 @@ test.c:512: error: control reaches end of non-void function [-Werror=return-type
 cc1: all warnings being treated as errors
 Compilation failed
 b82df14
+Fri 08 Sep 2023 02:16:47 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  17|0
+total_score: 70/70
+41c95c1
