@@ -2369,3 +2369,15 @@ test.c:439:59: error: ‘HashMap’ {aka ‘struct HashMap’} has no member nam
 cc1: all warnings being treated as errors
 Compilation failed
 7aae0cd
+Fri 08 Sep 2023 02:27:52 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:46:22: error: implicit declaration of function ‘hash2’; did you mean ‘hash’? [-Werror=implicit-function-declaration]
+   46 |     long increment = hash2(key, map->capacity);
+      |                      ^~~~~
+      |                      hash
+cc1: all warnings being treated as errors
+Compilation failed
+a99e636
