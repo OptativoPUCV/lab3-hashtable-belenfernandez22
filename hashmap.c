@@ -36,20 +36,15 @@ int is_equal(void* key1, void* key2){
 }
 
 void insertMap(HashMap * map, char * key, void * value) {
-    // Crear un nuevo par con la clave y el valor dados
     Pair * new_pair = createPair(key, value);
-
     // Calcular el índice del bucket usando la función hash
     long index = hash(key, map->capacity);
-
     // Si el bucket está vacío, insertar el nuevo par directamente
     if (map->buckets[index] == NULL) {
         map->buckets[index] = new_pair;
         map->size++;
     } else {
-        // Si el bucket ya está ocupado, buscar una posición vacía usando sondaje lineal
         while (map->buckets[index] != NULL) {
-            // Si la clave ya existe en el mapa, no insertar el nuevo par
             if (is_equal(map->buckets[index]->key, key)) {
                 return;
             }
@@ -63,29 +58,19 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 
 void enlarge(HashMap * map) {
-    // Crear una variable auxiliar de tipo Pair** para mantener el arreglo map->buckets
     Pair **old_buckets = map->buckets;
-
-    // Duplicar el valor de la variable capacity de map
     map->capacity *= 2;
-
-    // Asignar a map->buckets un nuevo arreglo con la nueva capacidad
     map->buckets = (Pair **)calloc(map->capacity, sizeof(Pair *));
-
     // Inicializar size a 0 en map
     map->size = 0;
-
-    // Recorrer el arreglo old_buckets e insertar los elementos que no sean nulos en el nuevo arreglo
     for (int i = 0; i < map->capacity / 2; i++) {
         if (old_buckets[i] != NULL) {
             insertMap(map, old_buckets[i]->key, old_buckets[i]->value);
         }
     }
-
-    // Liberar la memoria del arreglo old_buckets
+    // Liberar la memoria del arreglo 
     free(old_buckets);
 }
-
 HashMap * createMap(long capacity) {
   HashMap * map = (HashMap *)malloc(sizeof(HashMap));
     // Reservar memoria para un arreglo de punteros a Pair
