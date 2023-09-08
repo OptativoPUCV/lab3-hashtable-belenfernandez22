@@ -20,7 +20,6 @@ Pair * createPair( char * key,  void * value) {
     new->value = value;
     return new;
 }
-
 long hash( char * key, long capacity) {
     unsigned long hash = 0;
      char * ptr;
@@ -43,24 +42,25 @@ void insertMap(HashMap * map, char * key, void * value) {
     // Calcular el índice del bucket usando la función hash
     long index = hash(key, map->capacity);
 
+    // Calcular el valor de incremento para el doble hashing
+    long increment = hash2(key, map->capacity);
+
     // Si el bucket está vacío, insertar el nuevo par directamente
     if (map->buckets[index] == NULL) {
         map->buckets[index] = new_pair;
         map->size++;
     } else {
-        // Si el bucket ya está ocupado, buscar una posición vacía usando sondaje lineal
+        // Si el bucket ya está ocupado, buscar una posición vacía usando doble hashing
         while (map->buckets[index] != NULL) {
             // Si la clave ya existe en el mapa, no insertar el nuevo par
             if (is_equal(map->buckets[index]->key, key)) {
                 return;
             }
-            index = (index + 1) % map->capacity;
+            index = (index + increment) % map->capacity;
         }
         map->buckets[index] = new_pair;
         map->size++;
     }
-
-    // Actualizar el índice current a la posición del nuevo par
     map->current = index;
 }
 
@@ -123,39 +123,32 @@ Pair * searchMap(HashMap * map,  char * key) {
     // Usar la función hash para obtener el índice del bucket
     long index = hash(key, map->capacity);
 
-    // Si el bucket está vacío o tiene una clave distinta, avanzar hasta encontrar el par con la clave o llegar a un bucket vacío
     while (map->buckets[index] != NULL && !is_equal(map->buckets[index]->key, key)) {
         index = (index + 1) % map->capacity;
     }
-
-    // Si el par con la clave se encuentra, retornarlo y actualizar el índice current
+    //retornarlo y actualizar el índice
     if (map->buckets[index] != NULL && is_equal(map->buckets[index]->key, key)) {
         map->current = index;
         return map->buckets[index];
     }
-
-    // Si el par con la clave no se encuentra, retornar NULL y no modificar el índice current
     return NULL;
 } 
 Pair * firstMap(HashMap * map) {
     // Inicializar el índice current a -1
     map->current = -1;
-
-    // Recorrer el arreglo desde el inicio hasta encontrar un par válido o llegar al final
     for (int i = 0; i < map->capacity; i++) {
-        // Si el bucket tiene un par válido, retornarlo y actualizar el índice current
+        // retornarlo y actualizar 
         if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
             map->current = i;
             return map->buckets[i];
         }
     }
 
-    // Si no se encuentra ningún par válido, retornar NULL y no modificar el índice current
+    // Si no se encuentra ningún par válido, retornar NULL y no modificar
     return NULL;
 }
-
 Pair * nextMap(HashMap * map) {
-    // Si el índice current es válido, recorrer el arreglo desde el índice current + 1 hasta encontrar un par válido o llegar al final
+    // Si es válido, recorrer el arreglo desde el índice current + 1 hasta encontrar un par válido 
     if (map->current >= 0 && map->current < map->capacity) {
         for (int i = map->current + 1; i < map->capacity; i++) {
             // Si el bucket tiene un par válido, retornarlo y actualizar el índice current
@@ -165,7 +158,6 @@ Pair * nextMap(HashMap * map) {
             }
         }
     }
-
-    // Si no se encuentra ningún par válido, retornar NULL y no modificar el índice current
+// retornar NULL y no modificar el índice current
     return NULL;
 }

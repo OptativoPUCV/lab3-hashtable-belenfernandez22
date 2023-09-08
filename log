@@ -1657,3 +1657,15 @@ Fri 08 Sep 2023 02:16:47 AM UTC:
  tests:  17|0
 total_score: 70/70
 41c95c1
+Fri 08 Sep 2023 02:24:47 AM UTC: 
+ hashmap.c | 27 ++++++++++-----------------
+ 1 file changed, 10 insertions(+), 17 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:46:22: error: implicit declaration of function ‘hash2’; did you mean ‘hash’? [-Werror=implicit-function-declaration]
+   46 |     long increment = hash2(key, map->capacity);
+      |                      ^~~~~
+      |                      hash
+cc1: all warnings being treated as errors
+Compilation failed
+42770b1
