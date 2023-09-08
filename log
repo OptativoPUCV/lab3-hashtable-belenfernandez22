@@ -616,3 +616,77 @@ hashmap.c:129:8: note: previous definition of ‘nextMap’ with type ‘Pair *(
 cc1: all warnings being treated as errors
 Compilation failed
 b0a9566
+Fri 08 Sep 2023 12:38:36 AM UTC: 
+ hashmap.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:67:3: error: unknown type name ‘pair’; did you mean ‘Pair’?
+   67 |   pair**old_buckets = map-> buckets;
+      |   ^~~~
+      |   Pair
+hashmap.c:67:23: error: initialization of ‘int **’ from incompatible pointer type ‘Pair **’ [-Werror=incompatible-pointer-types]
+   67 |   pair**old_buckets = map-> buckets;
+      |                       ^~~
+hashmap.c:72:21: error: initialization of ‘Pair *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+   72 |     Pair *current = old_buckets[i];
+      |                     ^~~~~~~~~~~
+hashmap.c:76:24: error: ‘Pair’ has no member named ‘next’
+   76 |       current = current->next;
+      |                        ^~
+hashmap.c:78:1: error: stray ‘\302’ in program
+   78 |         }
+      | ^
+hashmap.c:78:2: error: stray ‘\302’ in program
+   78 |         }
+      |  ^
+hashmap.c:78:3: error: stray ‘\302’ in program
+   78 |         }
+      |   ^
+hashmap.c:78:4: error: stray ‘\302’ in program
+   78 |         }
+      |    ^
+hashmap.c:78:5: error: stray ‘\302’ in program
+   78 |         }
+      |     ^
+hashmap.c:78:6: error: stray ‘\302’ in program
+   78 |         }
+      |      ^
+hashmap.c:78:7: error: stray ‘\302’ in program
+   78 |         }
+      |       ^
+hashmap.c:79:1: error: stray ‘\302’ in program
+   79 |     }
+      | ^
+hashmap.c:79:2: error: stray ‘\302’ in program
+   79 |     }
+      |  ^
+hashmap.c:79:3: error: stray ‘\302’ in program
+   79 |     }
+      |   ^
+hashmap.c: In function ‘firstMap’:
+hashmap.c:124:28: error: ‘*(map->buckets + (sizetype)((long unsigned int)i * 8))’ is a pointer; did you mean to use ‘->’?
+  124 |         if (map->buckets[i].key != NULL) {
+      |                            ^
+      |                            ->
+hashmap.c:126:20: error: returning ‘Pair **’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  126 |             return &(map->buckets[i]);
+      |                    ^~~~~~~~~~~~~~~~~~
+hashmap.c: In function ‘nextMap’:
+hashmap.c:135:28: error: ‘*(map->buckets + (sizetype)((long unsigned int)i * 8))’ is a pointer; did you mean to use ‘->’?
+  135 |         if (map->buckets[i].key != NULL) {
+      |                            ^
+      |                            ->
+hashmap.c:137:19: error: returning ‘Pair **’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  137 |            return &(map->buckets[i]);
+      |                   ^~~~~~~~~~~~~~~~~~
+hashmap.c: At top level:
+hashmap.c:143:8: error: redefinition of ‘nextMap’
+  143 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+hashmap.c:132:8: note: previous definition of ‘nextMap’ with type ‘Pair *(HashMap *)’ {aka ‘Pair *(struct HashMap *)’}
+  132 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+4d5cad3
