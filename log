@@ -1376,3 +1376,21 @@ hashmap.c:139:8: error: ‘nextMap’ defined but not used [-Werror=unused-funct
 cc1: all warnings being treated as errors
 Compilation failed
 71d15f1
+Fri 08 Sep 2023 02:09:08 AM UTC: 
+ hashmap.c | 24 +++++++++++++++---------
+ 1 file changed, 15 insertions(+), 9 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:80:24: error: ‘Pair’ has no member named ‘next’
+   80 |       current = current->next;
+      |                        ^~
+In file included from test.c:4:
+hashmap.c: At top level:
+hashmap.c:158:8: error: redefinition of ‘nextMap’
+  158 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+hashmap.c:145:8: note: previous definition of ‘nextMap’ with type ‘Pair *(HashMap *)’ {aka ‘Pair *(struct HashMap *)’}
+  145 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+Compilation failed
+a74d8d6

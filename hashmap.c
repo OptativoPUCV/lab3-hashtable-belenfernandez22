@@ -112,19 +112,25 @@ if (pair != NULL){
 }
 }
 
-Pair * searchMap(HashMap * map,  char * key) {   
-  int pos = hash(key, map->capacity);
-  int i = pos; 
-  do{
-    if (map->buckets[i] == NULL)return NULL;
-    if(strcmp(map->buckets[i]->key, key) == 0) {
-      map-> current= i;
-      return map-> buckets[i];
+Pair * searchMap(HashMap * map,  char * key) {
+    // Usar la función hash para obtener el índice del bucket
+    long index = hash(key, map->capacity);
+
+    // Si el bucket está vacío o tiene una clave distinta, avanzar hasta encontrar el par con la clave o llegar a un bucket vacío
+    while (map->buckets[index] != NULL && !is_equal(map->buckets[index]->key, key)) {
+        index = (index + 1) % map->capacity;
     }
-    i=( i+1)% map -> capacity;
-  }
-   while( i!= pos);
-  return  NULL;
+
+    // Si el par con la clave se encuentra, retornarlo y actualizar el índice current
+    if (map->buckets[index] != NULL && is_equal(map->buckets[index]->key, key)) {
+        map->current = index;
+        return map->buckets[index];
+    }
+
+    // Si el par con la clave no se encuentra, retornar NULL y no modificar el índice current
+    return NULL;
+}
+
   
 Pair * firstMap(HashMap * map) {
     map->current = -1;
