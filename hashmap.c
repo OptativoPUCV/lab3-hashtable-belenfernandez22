@@ -75,7 +75,7 @@ void enlarge(HashMap * map) {
       Pair *temp = current;
       current = current->next;
       free(temp);
-        }
+    }
     } 
   free(old_buckets);
 }
