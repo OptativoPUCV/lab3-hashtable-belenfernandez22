@@ -1538,3 +1538,116 @@ test.c:512: error: control reaches end of non-void function [-Werror=return-type
 cc1: all warnings being treated as errors
 Compilation failed
 6723b56
+Fri 08 Sep 2023 02:16:29 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘nextMap’:
+hashmap.c:157:31: error: expected declaration specifiers before ‘}’ token
+  157 | Pair * nextMap(HashMap * map) }
+      |                               ^
+hashmap.c:159:5: error: expected declaration specifiers before ‘if’
+  159 |     if (map->current >= 0 && map->current < map->capacity) {
+      |     ^~
+hashmap.c:170:5: error: expected declaration specifiers before ‘return’
+  170 |     return NULL;
+      |     ^~~~~~
+hashmap.c:171:1: error: expected declaration specifiers before ‘}’ token
+  171 | }
+      | ^
+test.c:8:34: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+    8 | char * _strdup(const char * str) {
+      |                                  ^
+test.c:15:1: error: parameter ‘test_id’ is initialized
+   15 | int test_id = -1;
+      | ^~~
+test.c:18:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   18 | int success(){
+      |              ^
+test.c:23:24: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   23 | void err_msg(char* msg){
+      |                        ^
+test.c:30:23: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   30 | void ok_msg(char* msg){
+      |                       ^
+test.c:36:25: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   36 | void info_msg(char* msg){
+      |                         ^
+test.c:41:25: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   41 | HashMap* initializeMap(){
+      |                         ^
+test.c:64:22: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   64 | int createMap_test1(){ //Retorna el mapa
+      |                      ^
+test.c:75:22: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   75 | int createMap_test2(){ //Buckets nulos
+      |                      ^
+test.c:83:22: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   83 | int createMap_test3(){ //variables
+      |                      ^
+test.c:100:18: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  100 | void hash_test1(){ // posición válida
+      |                  ^
+test.c:111:18: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  111 | void hash_test2(){ // colisiones
+      |                  ^
+test.c:125:18: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  125 | void hash_test3(){ //no random
+      |                  ^
+test.c:131:20: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  131 | void compare_test(){
+      |                    ^
+test.c:138:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  138 | int insert_test1(){ //elemento con hash=3
+      |                   ^
+test.c:168:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  168 | int insert_test2(){ //no se agregan repetidos
+      |                   ^
+test.c:179:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  179 | int insert_test3(){ //colisión
+      |                   ^
+test.c:192:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  192 | int insert_test4(){ //colisión
+      |                   ^
+test.c:217:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  217 | int insert_test5(){ //factor de carga>0.7, se llama a función enlarge
+      |                   ^
+test.c:233:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  233 | int search_test1(){ //busqueda de elemento insertado
+      |                   ^
+test.c:256:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  256 | int search_test2(){ //busqueda de elemento colisionado
+      |                   ^
+test.c:276:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  276 | int search_test3(){ //busqueda de elemento que no existe
+      |                   ^
+test.c:289:18: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  289 | int erase_test1(){  //elimina dato
+      |                  ^
+test.c:314:18: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  314 | int erase_test2(){  //elimina dato colisionado
+      |                  ^
+test.c:330:18: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  330 | int erase_test3(){  //elimina dato que no existe
+      |                  ^
+test.c:345:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  345 | int first_test(){
+      |                 ^
+test.c:389:16: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  389 | int next_test(){
+      |                ^
+test.c:425:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  425 | int enlarge_test(){
+      |                   ^
+test.c:453:36: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  453 | int main( int argc, char *argv[] ) {
+      |                                    ^
+In file included from test.c:4:
+hashmap.c:157:8: error: old-style parameter declarations in prototyped function definition
+  157 | Pair * nextMap(HashMap * map) }
+      |        ^~~~~~~
+test.c:512: error: expected ‘{’ at end of input
+test.c:512: error: control reaches end of non-void function [-Werror=return-type]
+cc1: all warnings being treated as errors
+Compilation failed
+b82df14
