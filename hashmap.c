@@ -82,14 +82,24 @@ void enlarge(HashMap * map) {
   
 
   
+
 HashMap * createMap(long capacity) {
-    
-    HashMap * map = (HashMap *)malloc(sizeof(HashMap));
-    map->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
-    map->size = 0;
-    map->capacity = capacity;
-    map->current = -1;
-    return NULL;
+  
+    // Reservar memoria para una variable de tipo HashMap
+  HashMap * map = (HashMap *)malloc(sizeof(HashMap));
+
+    // Reservar memoria para un arreglo de punteros a Pair
+  map->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
+
+    // Inicializar el tamaño, la capacidad y el índice current
+  map->size = 0;
+  map->capacity = capacity;
+  map->current = -1;
+
+    // Retornar la variable de tipo HashMap
+  return map;
+}
+
 }
 
 
