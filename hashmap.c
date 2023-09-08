@@ -69,7 +69,7 @@ void enlarge(HashMap * map) {
         }
     }
     // Liberar la memoria del arreglo 
-    free(old_buckets):
+    free(old_buckets);
 }
 HashMap * createMap(long capacity) {
   HashMap * map = (HashMap *)malloc(sizeof(HashMap));
