@@ -917,3 +917,46 @@ hashmap.c:136:7: note: previous definition of ‘nextMap’ with type ‘Pair *(
       |       ^~~~~~~
 Compilation failed
 822a5f1
+Fri 08 Sep 2023 12:48:06 AM UTC: 
+ hashmap.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:76:24: error: ‘Pair’ has no member named ‘next’
+   76 |       current = current->next;
+      |                        ^~
+hashmap.c: In function ‘firstMap’:
+hashmap.c:128:16: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current_index’
+  128 |             map->current_index = i; // Establecer el índice actual
+      |                ^~
+hashmap.c: In function ‘nextMap’:
+hashmap.c:141:28: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current_index’
+  141 |     int current_index = map->current_index;
+      |                            ^~
+hashmap.c:145:40: error: ‘Pair’ has no member named ‘next’
+  145 |         if (map->buckets[current_index]->next != NULL) {
+      |                                        ^~
+hashmap.c:146:47: error: ‘Pair’ has no member named ‘next’
+  146 |             return map->buckets[current_index]->next;
+      |                                               ^~
+hashmap.c:151:20: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current_index’
+  151 |                 map->current_index = i; // Actualizar el índice actual
+      |                    ^~
+hashmap.c: At top level:
+hashmap.c:162:8: error: redefinition of ‘nextMap’
+  162 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+hashmap.c:136:7: note: previous definition of ‘nextMap’ with type ‘Pair *(HashMap *)’ {aka ‘Pair *(struct HashMap *)’}
+  136 | Pair *nextMap(HashMap *map) {
+      |       ^~~~~~~
+hashmap.c: In function ‘nextMap’:
+hashmap.c:165:28: error: ‘*(map->buckets + (sizetype)((long unsigned int)i * 8))’ is a pointer; did you mean to use ‘->’?
+  165 |         if (map->buckets[i].key != NULL) {
+      |                            ^
+      |                            ->
+hashmap.c:167:19: error: returning ‘Pair **’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  167 |            return &(map->buckets[i]);
+      |                   ^~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+a754922
