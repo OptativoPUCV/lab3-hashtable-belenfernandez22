@@ -82,7 +82,7 @@ void enlarge(HashMap * map) {
   
 
   
-  HashMap * createMap(long capacity) {
+HashMap * createMap(long capacity) {
     
     HashMap * map = (HashMap *)malloc(sizeof(HashMap));
     map->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
@@ -118,16 +118,48 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 }
 
-Pair * firstMap(HashMap * map) {
-    int i;
-    for (i = 0; i < map->size; i++) {
-        if (map->buckets[i].key != NULL) {
-            map->current = i;
-            return &(map->buckets[i]);
+Pair *firstMap(HashMap *map) {
+    if (map == NULL || map->buckets == NULL) {
+        return NULL;
+    }
+
+    for (int i = 0; i < map->capacity; i++) {
+        if (map->buckets[i] != NULL) {
+            map->current_index = i; // Establecer el índice actual
+            return map->buckets[i];
         }
     }
+
     return NULL;
 }
+
+Pair *nextMap(HashMap *map) {
+    if (map == NULL || map->buckets == NULL) {
+        return NULL;
+    }
+
+    int current_index = map->current_index;
+
+    if (current_index >= 0 && current_index < map->capacity) {
+        // Intentar encontrar el siguiente Pair en el mismo bucket
+        if (map->buckets[current_index]->next != NULL) {
+            return map->buckets[current_index]->next;
+        }
+        // Si no hay un siguiente en el mismo bucket, buscar el siguiente bucket no vacío
+        for (int i = current_index + 1; i < map->capacity; i++) {
+            if (map->buckets[i] != NULL) {
+                map->current_index = i; // Actualizar el índice actual
+                return map->buckets[i];
+            }
+        }
+    }
+
+    return NULL; // No se encontró un siguiente Pair
+}
+
+
+
+ 
 
 Pair * nextMap(HashMap * map) {
     int i;
