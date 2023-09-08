@@ -2429,3 +2429,14 @@ hashmap.c:72:22: error: expected ‘;’ before ‘}’ token
       | ~                     
 Compilation failed
 4f130e9
+Fri 08 Sep 2023 02:33:44 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:72:22: error: expected ‘;’ before ‘:’ token
+   72 |     free(old_buckets):
+      |                      ^
+      |                      ;
+Compilation failed
+d74376e
