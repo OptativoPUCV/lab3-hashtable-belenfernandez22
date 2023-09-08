@@ -1412,3 +1412,13 @@ hashmap.c:143:8: note: previous definition of ‘nextMap’ with type ‘Pair *(
       |        ^~~~~~~
 Compilation failed
 c5dedf6
+Fri 08 Sep 2023 02:13:49 AM UTC: 
+ hashmap.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:80:24: error: ‘Pair’ has no member named ‘next’
+   80 |       current = current->next;
+      |                        ^~
+Compilation failed
+32833a1

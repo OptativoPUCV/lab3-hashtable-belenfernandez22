@@ -131,29 +131,34 @@ Pair * searchMap(HashMap * map,  char * key) {
     return NULL;
 } 
 Pair * firstMap(HashMap * map) {
+    // Inicializar el índice current a -1
     map->current = -1;
+
+    // Recorrer el arreglo desde el inicio hasta encontrar un par válido o llegar al final
     for (int i = 0; i < map->capacity; i++) {
-        if (map->buckets[i] != NULL) {
+        // Si el bucket tiene un par válido, retornarlo y actualizar el índice current
+        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
             map->current = i;
             return map->buckets[i];
         }
     }
+
+    // Si no se encuentra ningún par válido, retornar NULL y no modificar el índice current
     return NULL;
 }
+
 Pair * nextMap(HashMap * map) {
+    // Si el índice current es válido, recorrer el arreglo desde el índice current + 1 hasta encontrar un par válido o llegar al final
     if (map->current >= 0 && map->current < map->capacity) {
         for (int i = map->current + 1; i < map->capacity; i++) {
-            if (map->buckets[i] != NULL) {
+            // Si el bucket tiene un par válido, retornarlo y actualizar el índice current
+            if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
                 map->current = i;
                 return map->buckets[i];
             }
         }
     }
-    return NULL;
-}
 
-
-Pair * nextMap(HashMap * map) {
-
+    // Si no se encuentra ningún par válido, retornar NULL y no modificar el índice current
     return NULL;
 }
