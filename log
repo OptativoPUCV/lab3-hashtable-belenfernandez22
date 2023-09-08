@@ -1394,3 +1394,21 @@ hashmap.c:145:8: note: previous definition of ‘nextMap’ with type ‘Pair *(
       |        ^~~~~~~
 Compilation failed
 a74d8d6
+Fri 08 Sep 2023 02:10:40 AM UTC: 
+ hashmap.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:80:24: error: ‘Pair’ has no member named ‘next’
+   80 |       current = current->next;
+      |                        ^~
+In file included from test.c:4:
+hashmap.c: At top level:
+hashmap.c:156:8: error: redefinition of ‘nextMap’
+  156 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+hashmap.c:143:8: note: previous definition of ‘nextMap’ with type ‘Pair *(HashMap *)’ {aka ‘Pair *(struct HashMap *)’}
+  143 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+Compilation failed
+c5dedf6

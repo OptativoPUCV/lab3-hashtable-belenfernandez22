@@ -100,17 +100,17 @@ HashMap * createMap(long capacity) {
   return map;
 }
 
+void eraseMap(HashMap * map,  char * key) {
+    // Buscar el par con la clave key
+    Pair * pair = searchMap(map, key);
 
-
-
-
-void eraseMap(HashMap * map,  char * key) {    
-  Pair* pair = searchMap(map,key);
-if (pair != NULL){ 
-  pair->key = NULL;
-  map -> size --;
+    // Si el par se encuentra, asignar NULL a la clave del par y actualizar el tamaño del mapa
+    if (pair != NULL) {
+        pair->key = NULL;
+        map->size--;
+    }
 }
-}
+
 
 Pair * searchMap(HashMap * map,  char * key) {
     // Usar la función hash para obtener el índice del bucket
@@ -129,9 +129,7 @@ Pair * searchMap(HashMap * map,  char * key) {
 
     // Si el par con la clave no se encuentra, retornar NULL y no modificar el índice current
     return NULL;
-}
-
-  
+} 
 Pair * firstMap(HashMap * map) {
     map->current = -1;
     for (int i = 0; i < map->capacity; i++) {
