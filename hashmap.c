@@ -43,7 +43,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     long index = hash(key, map->capacity);
 
     // Calcular el valor de incremento para el doble hashing
-    long increment = hash2(key, map->capacity);
+    long increment = hash(key, map->capacity);
 
     //  insertar el nuevo par directamente
     if (map->buckets[index] == NULL) {
