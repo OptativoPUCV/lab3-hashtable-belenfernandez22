@@ -473,3 +473,26 @@ test.c:100:6: error: ‘hash_test1’ defined but not used [-Werror=unused-funct
 cc1: all warnings being treated as errors
 Compilation failed
 07b7f0a
+Fri 08 Sep 2023 12:13:03 AM UTC: 
+ hashmap.c | 4 ----
+ 1 file changed, 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘firstMap’:
+hashmap.c:109:28: error: ‘*(map->buckets + (sizetype)((long unsigned int)i * 8))’ is a pointer; did you mean to use ‘->’?
+  109 |         if (map->buckets[i].key != NULL) {
+      |                            ^
+      |                            ->
+hashmap.c:111:20: error: returning ‘Pair **’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  111 |             return &(map->buckets[i]);
+      |                    ^~~~~~~~~~~~~~~~~~
+hashmap.c: In function ‘nextMap’:
+hashmap.c:120:28: error: ‘*(map->buckets + (sizetype)((long unsigned int)i * 8))’ is a pointer; did you mean to use ‘->’?
+  120 |         if (map->buckets[i].key != NULL) {
+      |                            ^
+      |                            ->
+hashmap.c:122:20: error: returning ‘Pair **’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  122 |             return &(map->buckets[i]);
+      |                    ^~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+4c64876
