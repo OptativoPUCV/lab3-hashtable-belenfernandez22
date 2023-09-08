@@ -1329,3 +1329,50 @@ hashmap.c:143:8: error: ‘nextMap’ defined but not used [-Werror=unused-funct
 cc1: all warnings being treated as errors
 Compilation failed
 a32ec32
+Fri 08 Sep 2023 02:06:57 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:80:24: error: ‘Pair’ has no member named ‘next’
+   80 |       current = current->next;
+      |                        ^~
+hashmap.c: In function ‘searchMap’:
+hashmap.c:152:8: error: redefinition of ‘nextMap’
+  152 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+hashmap.c:139:8: note: previous definition of ‘nextMap’ with type ‘Pair *(HashMap *)’ {aka ‘Pair *(struct HashMap *)’}
+  139 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+test.c:453:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  453 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:511:1: error: expected declaration or statement at end of input
+  511 | }
+      | ^
+At top level:
+test.c:453:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  453 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:217:5: error: ‘insert_test5’ defined but not used [-Werror=unused-function]
+  217 | int insert_test5(){ //factor de carga>0.7, se llama a función enlarge
+      |     ^~~~~~~~~~~~
+test.c:131:6: error: ‘compare_test’ defined but not used [-Werror=unused-function]
+  131 | void compare_test(){
+      |      ^~~~~~~~~~~~
+test.c:125:6: error: ‘hash_test3’ defined but not used [-Werror=unused-function]
+  125 | void hash_test3(){ //no random
+      |      ^~~~~~~~~~
+test.c:111:6: error: ‘hash_test2’ defined but not used [-Werror=unused-function]
+  111 | void hash_test2(){ // colisiones
+      |      ^~~~~~~~~~
+test.c:100:6: error: ‘hash_test1’ defined but not used [-Werror=unused-function]
+  100 | void hash_test1(){ // posición válida
+      |      ^~~~~~~~~~
+In file included from test.c:4:
+hashmap.c:139:8: error: ‘nextMap’ defined but not used [-Werror=unused-function]
+  139 | Pair * nextMap(HashMap * map) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+71d15f1

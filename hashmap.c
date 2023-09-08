@@ -83,10 +83,6 @@ void enlarge(HashMap * map) {
 } 
   free(old_buckets);
 }
-  
-
-  
-
 HashMap * createMap(long capacity) {
   
     // Reservar memoria para una variable de tipo HashMap
@@ -104,7 +100,7 @@ HashMap * createMap(long capacity) {
   return map;
 }
 
-}
+
 
 
 
